@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 2018_09_10_192540) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "days", force: :cascade do |t|
-    t.integer "user_habit_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "dates", default: [], array: true
-  end
-
   create_table "habits", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -34,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_09_10_192540) do
     t.integer "habit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "dates", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
