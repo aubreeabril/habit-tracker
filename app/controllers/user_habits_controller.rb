@@ -10,10 +10,15 @@ class UserHabitsController < ApplicationController
     render json: @user_habit
   end
 
+  def update
+    @user_habit.update(user_habit_params)
+    render json: @user_habit
+  end
+
   private
 
-  def user_params
-    params.require(:user_habit).permit(:user_id, :habit_id)
+  def user_habit_params
+    params.permit(:user_id, :habit_id, :dates)
   end
 
   def find_user_habit
