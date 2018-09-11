@@ -15,6 +15,11 @@ class UserHabitsController < ApplicationController
     render json: @user_habit
   end
 
+  def create
+    @user_habit = UserHabit.create(user_habit_params)
+    render json: @user_habit
+  end
+
   private
 
   def user_habit_params

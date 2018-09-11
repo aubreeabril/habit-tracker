@@ -10,9 +10,14 @@ class HabitsController < ApplicationController
     render json: @habit
   end
 
+  def create
+    @habit = Habit.create(habit_params)
+    render json: @habit
+  end
+
   private
 
-  def user_params
+  def habit_params
     params.require(:habit).permit(:title, :description)
   end
 
