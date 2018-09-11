@@ -23,7 +23,7 @@ class UserHabitsController < ApplicationController
   private
 
   def user_habit_params
-    params.permit(:user_id, :habit_id, :dates)
+    params.require(:user_habit).permit(:id, :user_id, :habit_id, :dates => [])
   end
 
   def find_user_habit
