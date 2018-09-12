@@ -1,5 +1,5 @@
 class HabitsController < ApplicationController
-  before_action :find_habit, only: [:update, :show]
+  before_action :find_habit, only: [:update, :show, :destroy]
 
   def index
     @habit = Habit.all
@@ -13,6 +13,15 @@ class HabitsController < ApplicationController
   def create
     @habit = Habit.create(habit_params)
     render json: @habit
+  end
+
+  def update
+    @habit.update(habit_params)
+    render json: @habit
+  end
+
+  def destroy
+    @habit.destroy
   end
 
   private
